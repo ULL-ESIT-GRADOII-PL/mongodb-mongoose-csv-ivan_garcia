@@ -28,18 +28,14 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url("../css/images/invierno.jpg") no-repeat center center fixed;
+  background: url("../images/invierno.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   padding: 10%; }
 
-#fondo_tabla {
-  background-color: rgba(23, 86, 202, 0.3);
-  padding: 5%;
-  padding-right: 10%;
-  width: 650px; }
+.contenido { background-color: rgba(23, 86, 202, 0.3);}
 
 #result {
   position: top;

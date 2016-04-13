@@ -25,23 +25,32 @@ const fillTable = (data) => {
 /* Volcar en la textarea de entrada
  * #original el contenido del fichero fileName */
 const dump = (fileName) => {
-  XXXXXXXXXXXXXXX XXXXXXXX XXXXXX X
-      XXXXXXXXXXXXXXXXXXXXXXXXX
-  XXX
+  $.get(fileName, function (data) {
+      $("#original").val(data);
+  });
 };
 
 const handleFileSelect = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
 
- XXX XXXXX X XXXXXXXXXXXXXXXXX
+  var file = evt.dataTransfer.files;
 
-  XXX XXXXXX X XXX XXXXXXXXXXXXX
-  XXXXXXXXXXXXX X XXX XX X
+   if (file[0]) {
+     var r = new FileReader();
 
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  XX
-  XXXXXXXXXXXXXXXXXXXXXXXXXXX
+     r.onload = function(e) {
+       var contents = e.target.result;
+       INPUT.innerHTML = contents;
+     }
+
+     r.readAsText(file[0]);
+   }
+   else {
+     alert("Error al cargar el fichero");
+   }
+
+   evt.target.style.background = "#FFF";
 }
 
 /* Drag and drop: el fichero arrastrado se vuelca en la textarea de entrada */
@@ -64,6 +73,12 @@ const handleDragOver = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
   evt.target.style.background = "yellow";
+}
+
+function handleDragLeave(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.target.style.background = "#FFF";
 }
 
 $(document).ready(() => {

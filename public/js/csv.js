@@ -18,27 +18,27 @@ const resultTemplate = `
 `;
 
 /* Volcar la tabla con el resultado en el HTML */
-const fillTable = (data) => { 
-  $("#finaltable").html(_.template(resultTemplate, { rows: data.rows })); 
+const fillTable = (data) => {
+  $("#finaltable").html(_.template(resultTemplate, { rows: data.rows }));
 };
 
-/* Volcar en la textarea de entrada 
+/* Volcar en la textarea de entrada
  * #original el contenido del fichero fileName */
 const dump = (fileName) => {
   XXXXXXXXXXXXXXX XXXXXXXX XXXXXX X
       XXXXXXXXXXXXXXXXXXXXXXXXX
   XXX
 };
- 
+
 const handleFileSelect = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
 
- XXX XXXXX X XXXXXXXXXXXXXXXXX 
+ XXX XXXXX X XXXXXXXXXXXXXXXXX
 
   XXX XXXXXX X XXX XXXXXXXXXXXXX
   XXXXXXXXXXXXX X XXX XX X
-  
+
     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   XX
   XXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -53,7 +53,7 @@ const handleDragFileSelect = (evt) => {
 
   XXX XXXXXX X XXX XXXXXXXXXXXXX
   XXXXXXXXXXXXX X XXX XX X
-  
+
     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     XXXXXXXXXXXXXXXXXXXXXXXXXXX X XXXXXXXX
   XX
@@ -67,7 +67,7 @@ const handleDragOver = (evt) => {
 }
 
 $(document).ready(() => {
-    let original = document.getElementById("original");  
+    let original = document.getElementById("original");
     if (window.localStorage && localStorage.original) {
       original.value = localStorage.original;
     }
@@ -75,8 +75,8 @@ $(document).ready(() => {
     /* Request AJAX para que se calcule la tabla */
     XXXXXXXXXXXXXXXXXX XX XX X
         XX XXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXX X XXXXXXXXXXXXXXX
-        XXXXXXXXXXXXX 
-          X XXXXXX XXXXXXXXXXXXXX XX 
+        XXXXXXXXXXXXX
+          X XXXXXX XXXXXXXXXXXXXX XX
           XXXXXXXXXX
           XXXXXX
         XX

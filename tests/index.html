@@ -1,0 +1,48 @@
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>CSV Analyzer</title>
+
+	<link href="mocha.css" rel="stylesheet" type="text/css">
+  <link href="global.css" rel="stylesheet" type="text/css">
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!-- Tabla resultado -->
+	<script type="text/html" id='fillTable'>
+	    <table id="result" class="center">
+	    <% _.each(items, function(name) { %>
+	    <tr class="<%= name.rowClass %>">
+	    <% _.each(name.value, function(cell) { %>
+	    <td><%= cell %></td>
+	    <% }); %>
+	    </tr>
+	    <% }); %>
+	    </table>
+	</script>
+    </head>
+    <body>
+	<div id="mocha"></div>
+  <table>
+	<tr>
+	<th>CSV string:</th> <!-- autofocus attribute is HTML5 -->
+	<td><textarea autofocus cols = "80" rows = "5" id="original"></textarea></td>
+	</tr>
+</table>
+	<button type="button">table:</button><br>
+	<span class="output" id="finaltable"></span>
+	<script src="chai.js"></script>
+	<script src="mocha.js"></script>
+  <script src="blanket.js"
+  	    data-cover-adapter="mocha-blanket.js"></script>-->
+  <script src="../js/main.js" data-cover></script>
+  <script src="../js/csv.js" data-cover></script>
+
+	<script>mocha.setup('tdd')</script>
+	<script src="tests.js"></script>
+	<script>
+	mocha.run();
+	</script>
+    </body>
+</html>

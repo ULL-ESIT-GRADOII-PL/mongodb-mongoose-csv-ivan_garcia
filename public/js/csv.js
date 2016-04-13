@@ -31,54 +31,16 @@ const dump = (fileName) => {
 };
 
 const handleFileSelect = (evt) => {
-  evt.stopPropagation();
-  evt.preventDefault();
 
-  var file = evt.dataTransfer.files;
-
-   if (file[0]) {
-     var r = new FileReader();
-
-     r.onload = function(e) {
-       var contents = e.target.result;
-       INPUT.innerHTML = contents;
-     }
-
-     r.readAsText(file[0]);
-   }
-   else {
-     alert("Error al cargar el fichero");
-   }
-
-   evt.target.style.background = "#FFF";
 }
 
 /* Drag and drop: el fichero arrastrado se vuelca en la textarea de entrada */
 const handleDragFileSelect = (evt) => {
-  evt.stopPropagation();
-  evt.preventDefault();
 
-  XXX XXXXX X XXXXXXXXXXXXXXXXXXXXXXX XX XXXXXXXX XXXXXXX
-
-  XXX XXXXXX X XXX XXXXXXXXXXXXX
-  XXXXXXXXXXXXX X XXX XX X
-
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXX X XXXXXXXX
-  XX
-  XXXXXXXXXXXXXXXXXXXXXXXXXXX
 }
 
 const handleDragOver = (evt) => {
-  evt.stopPropagation();
-  evt.preventDefault();
-  evt.target.style.background = "yellow";
-}
 
-function handleDragLeave(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    evt.target.style.background = "#FFF";
 }
 
 $(document).ready(() => {
@@ -88,25 +50,19 @@ $(document).ready(() => {
     }
 
     /* Request AJAX para que se calcule la tabla */
-    XXXXXXXXXXXXXXXXXX XX XX X
-        XX XXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXX X XXXXXXXXXXXXXXX
-        XXXXXXXXXXXXX
-          X XXXXXX XXXXXXXXXXXXXX XX
-          XXXXXXXXXX
-          XXXXXX
-        XX
-   XXX
+    $("#parser").click( () => {
+        if (window.localStorage) localStorage.original = original.value;
+        $.get("/csv", /* Request AJAX para que se calcule la tabla */
+          { input: original.value },
+          fillTable,
+          'json'
+        );
+   });
    /* botones para rellenar el textarea */
-   XXXXXXXXXXXXXXXXXXXXXXXXX XXXXX XX X
-     XXXXXXXXXXX XX XX X XXXXXXXXXXXXXXXXXXXXXXXXXXX XXX
-   XXX
+
 
     // Setup the drag and drop listeners.
     //var dropZone = document.getElementsByClassName('drop_zone')[0];
-    let dropZone = $('.drop_zone')[0];
-    dropZone.addEventListener('dragover', handleDragOver, false);
-    dropZone.addEventListener('drop', handleDragFileSelect, false);
-    let inputFile = $('.inputfile')[0];
-    inputFile.addEventListener('change', handleFileSelect, false);
- });
+
+
 })();

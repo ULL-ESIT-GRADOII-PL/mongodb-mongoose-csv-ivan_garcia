@@ -34,12 +34,9 @@ const dump = (fileName) => {
 const handleFileSelect = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
-
   var files = evt.target.files;
-
    var reader = new FileReader();
    reader.onload = (e) => {
-
      $("#original").val(e.target.result);
    };
    reader.readAsText(files[0])
@@ -55,13 +52,11 @@ const handleDragFileSelect = (evt) => {
 
   var reader = new FileReader();
   reader.onload = (e) => {
-
     $("#original").val(e.target.result);
     evt.target.style.background = "white";
   };
   reader.readAsText(files[0])
 }
-
 
 const handleDragOver = (evt) => {
   evt.stopPropagation();

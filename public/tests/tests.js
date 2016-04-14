@@ -3,7 +3,7 @@ var assert = chai.assert;
 //var original;
 suite('csv', function() {
     if (typeof __html__ !== 'undefined') {
-	document.body.innerHTML = __html__["tests/index.html"];
+	document.body.innerHTML = __html__["index.html"];
 	original = document.getElementById("original");
 	finaltable = document.getElementById("finaltable");
     }

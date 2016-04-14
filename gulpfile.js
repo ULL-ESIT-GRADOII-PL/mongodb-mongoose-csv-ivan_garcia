@@ -8,15 +8,11 @@ var minifyHTML = require('gulp-minify-html');
 var minifyCSS = require('gulp-minify-css');
 
 gulp.task('minify', function () {
-  gulp.src('js/csv.js')
+  gulp.src('./public/js/csv.js')
   .pipe(uglify())
   .pipe(gulp.dest('minified'));
 
-  gulp.src('./index.html')
-  .pipe(minifyHTML())
-  .pipe(gulp.dest('./minified/'))
-
-  gulp.src('./css/*.css')
+  gulp.src('./public/css/*.css')
   .pipe(minifyCSS({keepBreaks:true}))
   .pipe(gulp.dest('./minified/'))
   });
@@ -43,7 +39,7 @@ gulp.task('deploy', function() {
     .pipe(ghPages());
 });
 
-gulp.task('default', ['minify'], function() {
+gulp.task('default', function() {
   gulp.src([])
     .pipe(karma({
       configFile: 'karma.conf.js',

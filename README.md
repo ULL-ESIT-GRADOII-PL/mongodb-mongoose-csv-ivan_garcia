@@ -1,5 +1,15 @@
 # Práctica 2: Comma separated values (CSV) with AJAX
 
+Pag web Heroku: https://fierce-wildwood-36000.herokuapp.com/
+
+Repositorio de la organizacion: https://github.com/ULL-ESIT-GRADOII-PL/ajax-ecma6-modules-files-ivan_garcia
+
+Repositorio de la practica: https://github.com/alu0100693737/ajax-ecma6-modules-files-ivan_garcia
+
+Descripcion de la practica: https://casianorodriguezleon.gitbooks.io/pl1516/content/practicas/csv.html
+
+Pag Web de usuario: http://alu0100693737.github.io/
+
 ## jQuery.get( url [, data ] [, success ] [, dataType ] )
 * url
   * Type: String
@@ -9,7 +19,7 @@
   * A plain object or string that is sent to the server with the request.
 * success
   * Type: Function( PlainObject data, String textStatus, jqXHR jqXHR )
-  * A callback function that is executed if the request succeeds. 
+  * A callback function that is executed if the request succeeds.
     Required if `dataType` is provided, but you can use `null` or `jQuery.noop` as a placeholder.
 * dataType
   * Type: String
@@ -18,8 +28,8 @@
 ## jQuery.get( [settings ] )
 * settings
   * Type: PlainObject
-  * A set of key/value pairs that configure the Ajax request. 
-  * All properties except for `url` are optional. 
+  * A set of key/value pairs that configure the Ajax request.
+  * All properties except for `url` are optional.
   * A default can be set for any option with `$.ajaxSetup()`.
 
 This is a shorthand Ajax function, which is equivalent to:
@@ -35,6 +45,5 @@ $.ajax({
 
 The success callback function is passed the returned data, which will be an XML root element, text string, JavaScript file, or JSON object, depending on the MIME type of the response. It is also passed the text status of the response.
 
-# Heroku 
+# Heroku
 https://cvsajax.herokuapp.com/
-

@@ -9,7 +9,7 @@ suite('csv', function() {
     }
     test('Intr. correcta', function () {
   original.value = 'a, b, c, d\naa, bb, cc, dd';
-	main();
+	calculate(original);
 	var esperado = '\n\t    <table id="result" class="center">\n\t    \n\t    <tbody><tr class="">\n\t    \n\t    <td>a</td>\n\t    \n\t    <td>b</td>\n\t    \n\t    <td>c</td>\n\t    \n\t    <td>d</td>\n\t    \n\t    </tr>\n\t    \n\t    <tr class="">\n\t    \n\t    <td>aa</td>\n\t    \n\t    <td>bb</td>\n\t    \n\t    <td>cc</td>\n\t    \n\t    <td>dd</td>\n\t    \n\t    </tr>\n\t    \n\t    </tbody></table>\n\t'
 	assert.deepEqual(finaltable.innerHTML, esperado);
     });

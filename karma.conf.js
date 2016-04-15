@@ -22,9 +22,8 @@ module.exports = function(config) {
     files: [
     	'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js',
-      'tests/index.html',
-      'js/*.js',
-      'tests/tests2.js'
+      'public/tests/index.html',
+      'public/tests/csv-test.js'
     ],
 
     // list of files to exclude
@@ -35,7 +34,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'tests/index.html':['html2js'],
+      'public/tests/index.html':['html2js'],
     },
 
     // test results reporter to use

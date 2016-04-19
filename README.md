@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Práctica 2: Comma separated values (CSV) with AJAX
 
 Pag web Heroku: https://fierce-wildwood-36000.herokuapp.com/
@@ -25,3 +26,9 @@ Utilice tantas características de ECMA6 como le sea posible
 Añada botones/enlaces/menu de selección que permitan cargar un fichero específico de una lista de ficheros en la texarea de entrada como en el ejemplo en crguezl/expressloadfileontotextarea
 Añada una zona de Drag-and-Drop a la que se pueda arrastrar el fichero a analizar. Véa el ejemplo draganddrop.html en la sección Ficheros
 Añada un botón de lectura de fichero <input type="file" /> para cargar la entrada desde fichero
+=======
+# mongodb-mongoose-csv-ivan_garcia
+mongodb-mongoose-csv-ivan_garcia created by GitHub Classroom
+
+Iván García Campos
+>>>>>>> 1f7edb8c346b1eafcebe1186ee7a71732fce5527

@@ -86,6 +86,14 @@ $(document).ready(() => {
      $(y).click( () => { dump(`examples/${$(y).text()}.txt`); });
    });
 
+  //metodo find 
+  $('button.example').each((indice, elemento) => {
+      $.get("/find", {
+        name: indice,
+        content: elemento
+      });
+    });
+    
     // Setup the drag and drop listeners.
     //var dropZone = document.getElementsByClassName('drop_zone')[0];
     let dropZone = $('.drop_zone')[0];

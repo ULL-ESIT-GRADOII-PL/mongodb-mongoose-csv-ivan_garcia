@@ -36,7 +36,7 @@
 
     });
 
-  let promesa1 = c1.save(function (err) {
+  let p1 = c1.save(function (err) {
     if (err) { console.log(`Hubieron errores:\n${err}`); return err; }
     console.log(`Saved: ${c1}`);
   });
@@ -51,7 +51,7 @@
     console.log(`Saved promesa3: ${x}`);
   });
 
-  Promise.all([promesa1, promesa2, promesa3]).then( (value) => { 
+  Promise.all([p1, promesa2, promesa3]).then( (value) => { 
     console.log(util.inspect(value, {depth: null}));  
     mongoose.connection.close(); 
   });

@@ -5,6 +5,7 @@ const app = express();
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 var producto = require('./controllers/producto');
+const Entrada = require('./controllers/db');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -35,8 +36,6 @@ app.param('entrada', function(req, res, next, entrada) {
   }
   next();
 });
-
-const Entrada = require('./controllers/db');
 
 app.get('/mongo/:entrada', function(req, res) {
   console.log(req.Entrada);

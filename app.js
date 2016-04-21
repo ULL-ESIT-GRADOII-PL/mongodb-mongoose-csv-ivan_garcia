@@ -28,7 +28,7 @@ app.get('/csv', (request, response) => {
 app.get('/tutu', producto.index);
 
 
-app.param('entrada', function(req, res, next, entrada) {
+app.param('nuevaentrada', function(req, res, next, entrada) {
   if (entrada.match(/^[a-z_]\w*\.csv$/i)) {
     req.Entrada = entrada;
   } else {
@@ -37,7 +37,7 @@ app.param('entrada', function(req, res, next, entrada) {
   next();
 });
 
-app.get('/mongo/:entrada', function(req, res) {
+app.get('/mongo/:nuevaentrada', function(req, res) {
   console.log(req.Entrada);
 
   mongoose.connect('mongodb://localhost/prueba');

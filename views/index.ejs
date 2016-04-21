@@ -17,22 +17,23 @@
         <br>
             <textarea class = "drop_zone" autofocus="" cols = "80" rows = "5" id="original"></textarea>
         <br>
-            <button type="button" id="parser"> Analizar!</button>
             <div class="example">
               Click para cargar ejemplos:
-              <button class ="example" type="button"></button>
-              <button class ="example" type="button"></button>
-              <button class ="example" type="button"></button>
-              <button class ="example" type="button"></button>
+              <button class ="example" type="button">entrada1.csv</button>
+              <button class ="example" type="button">entrada2.csv</button>
+              <button class ="example" type="button">entrada3.csv</button>
+              <button class ="example" type="button">input4</button>
             </div>
             <br>
               Cargar archivo:
               <input type="file" class="inputfile" />
           </div>
+          
           <form>
             <input id="titulo" type="text" pattern="^[a-zA-Z_]\w*\.csv$">
             <input id="guardar" type="submit">
           </form>
+           <button type="button" id="parser"> Analizar!</button>
       <div class="output" id="finaltable">
       </div>
     </div>

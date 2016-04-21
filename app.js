@@ -6,6 +6,10 @@ const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 var producto = require('./controllers/producto');
 
+const mongoose = require('mongoose');
+//Se inicia la conexión a la BD
+mongoose.connect('mongodb://localhost/csv');
+
 app.set('port', (process.env.PORT || 5000));
 
 app.set('views', path.join(__dirname, 'views'));
@@ -29,9 +33,8 @@ app.get('/tutu', producto.index);
 
 const Entrada = require('./models/db');
 
-app.get('/mongo', function(req, res) {
-  mongoose.connect('mongodb://localhost/prueba');
-  console.log(req.Entrada);
+app.get('/mongo/', function(req, res) {
+  
   //maximo 4 entradas, la ultima puede cambiar
   Entrada.find({}, function(err, docs) {
         if (err)
@@ -47,7 +50,15 @@ app.get('/mongo', function(req, res) {
     "content":  req.query.content
   });
 
-  let promesa = input.save(function(err) {
+input.save(function(err) {
+        if (err) {
+            console.log(`Errors:\n${err}`);
+            return err;
+        }
+        console.log(`Saved: ${input}`);
+    });
+});
+  /*let promesa = input.save(function(err) {
     if (err) {
       console.log(`Hubieron errores:\n${err}`);
       return err;
@@ -59,7 +70,7 @@ app.get('/mongo', function(req, res) {
     console.log(value);
     mongoose.connection.close();
   });
-});
+});*/
 
 app.get('/find', function(req, res) {
     Entrada.find({}, function(err, docs) {

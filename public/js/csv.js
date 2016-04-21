@@ -24,11 +24,11 @@ const fillTable = (data) => {
 
 /* Volcar en la textarea de entrada
  * #original el contenido del fichero fileName */
-const dump = (fileName) => {
+/*const dump = (fileName) => {
   $.get(fileName, function (data) {
       $("#original").val(data);
   });
-};
+};*/
 
 //File
 const handleFileSelect = (evt) => {
@@ -107,7 +107,7 @@ $(document).ready(() => {
        
         $("#guardar").click(() => {
           if (window.localStorage) localStorage.original = original.value;
-          $.get("/mongo" + $("#titulo").val(), {
+          $.get("/mongo/" + $("#titulo").val(), {
             content: $("#original").val()
           });
         });

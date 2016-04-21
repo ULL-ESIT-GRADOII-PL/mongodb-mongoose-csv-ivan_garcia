@@ -87,7 +87,7 @@ $(document).ready(() => {
    });
 
   //metodo find 
-  $('button.example').each((indice, elemento) => {
+  $('button.exampleguardar').each((indice, elemento) => {
       $.get("/find", {
         name: indice,
         content: elemento

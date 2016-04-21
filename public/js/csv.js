@@ -83,16 +83,34 @@ $(document).ready(() => {
    });
    /* botones para rellenar el textarea */
    $('button.example').each( (_,y) => {
-     $(y).click( () => { dump(`examples/${$(y).text()}.txt`); });
+     $(y).click( () => { 
+      
+                $.get("/findByName", {
+                        name: $(y).text()
+                    },
+                    (data) => {
+                        $("#original").val(data[0].content);
+                    });
+            });
+       //dump(`examples/${$(y).text()}.txt`); });
    });
 
-  //metodo find 
-  $('button.exampleguardar').each((indice, elemento) => {
-      $.get("/find", {
-        name: indice,
-        content: elemento
-      });
-    });
+  $.get("/find", {}, (data) => {
+            for (var i = 0; i < 4; i++) {
+                if (data[i]) {
+                    $('button.example').get(i).className = "example";
+                    $('button.example').get(i).textContent = data[i].name;
+                }
+            }
+        });
+
+       
+        $("#guardar").click(() => {
+          if (window.localStorage) localStorage.original = original.value;
+          $.get("/mongo" + $("#titulo").val(), {
+            content: $("#original").val()
+          });
+        });
     
     // Setup the drag and drop listeners.
     //var dropZone = document.getElementsByClassName('drop_zone')[0];

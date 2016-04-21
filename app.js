@@ -27,28 +27,27 @@ app.get('/csv', (request, response) => {
 app.get('/tutu', producto.index);
 
 
-app.param('entrada', function(req, res, next, entrada) {
-  if (entrada.match(/^[a-z_]\w*\.csv$/i)) {
-    req.Entrada = entrada;
-  } else {
-    next(new Error(`<${entrada}> no casa con los requisitos de 'entrada'`));
-  }
-  next();
-});
-
 const Entrada = require('./models/db');
 
-app.get('/mongo/:entrada', function(req, res) {
-  console.log(req.Entrada);
-
+app.get('/mongo', function(req, res) {
   mongoose.connect('mongodb://localhost/prueba');
+  console.log(req.Entrada);
+  //maximo 4 entradas, la ultima puede cambiar
+  Entrada.find({}, function(err, docs) {
+        if (err)
+            return err;
+        if (docs.length >= 4) {
+            Entrada.find({ name: docs[3].name }).remove().exec();
+        }
+    });
 
+  
   let input = new Entrada({
-    "name": req.Entrada,
-    "content": "test"
+    "name": req.params.Entrada,
+    "content":  req.query.content
   });
 
-  let promesa = Entrada.save(function(err) {
+  let promesa = input.save(function(err) {
     if (err) {
       console.log(`Hubieron errores:\n${err}`);
       return err;
@@ -63,10 +62,22 @@ app.get('/mongo/:entrada', function(req, res) {
 });
 
 app.get('/find', function(req, res) {
-  if (Entrada.find()[req.query.indice] != null)
-    req.query.elemento.toggleClass('input');
+    Entrada.find({}, function(err, docs) {
+        if (err)
+            return err;
+        res.send(docs);
+    });
 });
 
+/*Se devuelve como respuesta la entrada correspondiente al nombre
+  especificado en la request*/
+app.get('/findByName', function(req, res) {
+    Entrada.find({
+        name: req.query.name
+    }, function(err, docs) {
+        res.send(docs);
+    });
+});
 /*// Routes
 app.get('/', producto.index)
  

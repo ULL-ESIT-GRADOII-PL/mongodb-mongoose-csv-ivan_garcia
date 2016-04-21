@@ -20,15 +20,19 @@
             <button type="button" id="parser"> Analizar!</button>
             <div class="example">
               Click para cargar ejemplos:
-              <button class ="example" type="button">input</button>
-              <button class ="example" type="button">input2</button>
-              <button class ="example" type="button">input3</button>
-              <button type="button" id="prueba">prueba guardado</button>
+              <button class ="example hidden" type="button"></button>
+              <button class ="example hidden" type="button"></button>
+              <button class ="example hidden" type="button"></button>
+              <button class ="example hidden" type="button"></button>
             </div>
             <br>
               Cargar archivo:
               <input type="file" class="inputfile" />
           </div>
+          <form>
+            <input id="titulo" type="text" pattern="^[a-zA-Z_]\w*\.csv$">
+            <input id="guardar" type="submit">
+          </form>
       <div class="output" id="finaltable">
       </div>
     </div>

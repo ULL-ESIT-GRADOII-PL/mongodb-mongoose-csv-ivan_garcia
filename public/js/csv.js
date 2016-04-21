@@ -72,20 +72,18 @@ $(document).ready(() => {
       original.value = localStorage.original;
     }
 
-    /* Request AJAX para que se calcule la tabla */
     $("#parser").click( () => {
         if (window.localStorage) localStorage.original = original.value;
-        $.get("/csv", /* Request AJAX para que se calcule la tabla */
+        $.get("/csv", 
           { input: original.value },
           fillTable,
           'json'
         );
    });
-   /* botones para rellenar el textarea */
-   $('button.example').each( (_,y) => {
-     $(y).click( () => { 
-      
-                $.get("/findByName", {
+      //rellenamos el textarea original con el contenido del boton
+      $('button.example').each( (_,y) => {
+        $(y).click( () => { 
+                $.get("/findPorNombre", {
                         name: $(y).text()
                     },
                     (data) => {
@@ -93,9 +91,9 @@ $(document).ready(() => {
                     });
             });
        //dump(`examples/${$(y).text()}.txt`); });
-   });
+        });
 
-  $.get("/find", {}, (data) => {
+        $.get("/find", {}, (data) => {
             for (var i = 0; i < 4; i++) {
                 if (data[i]) {
                     $('button.example').get(i).className = "example";
@@ -105,9 +103,10 @@ $(document).ready(() => {
         });
 
        
-        $("#guardar").click(() => {
+       $("#guardar").click(() => {
           if (window.localStorage) localStorage.original = original.value;
-          $.get("/mongo/" + $("#titulo").val(), {
+          $.get("/mongo/", {
+            name: $("#titulo").val(),
             content: $("#original").val()
           });
         });

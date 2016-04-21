@@ -36,9 +36,11 @@ html {
   padding: 10%; 
   
 }
+
+/*problemas mostrando boton*/  
 button.hidden {
   display: none;
-  }
+}
 
 .contenido {
   background-color: rgba(130, 159, 246, 0.4);

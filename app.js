@@ -49,6 +49,8 @@ app.get('/mongo/', function(req, res) {
     "name": req.params.Entrada,
     "content":  req.query.content
   });
+  console.log(req.params.Entrada);
+  console.log(req.query.content);
 
 input.save(function(err) {
         if (err) {

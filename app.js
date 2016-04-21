@@ -8,7 +8,7 @@ var producto = require('./controllers/producto');
 
 const mongoose = require('mongoose');
 //Se inicia la conexión a la BD
-mongoose.connect('mongodb://localhost/csv');
+mongoose.connect('mongodb://localhost/prueba');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -58,19 +58,6 @@ input.save(function(err) {
         console.log(`Saved: ${input}`);
     });
 });
-  /*let promesa = input.save(function(err) {
-    if (err) {
-      console.log(`Hubieron errores:\n${err}`);
-      return err;
-    }
-    console.log(`Saved: ${input}`);
-  });
-
-  Promise.resolve(promesa).then((value) => {
-    console.log(value);
-    mongoose.connection.close();
-  });
-});*/
 
 app.get('/find', function(req, res) {
     Entrada.find({}, function(err, docs) {

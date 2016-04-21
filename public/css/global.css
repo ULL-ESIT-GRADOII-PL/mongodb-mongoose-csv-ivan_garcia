@@ -33,7 +33,12 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding: 10%; }
+  padding: 10%; 
+  
+}
+button.hidden {
+  display: none;
+  }
 
 .contenido {
   background-color: rgba(130, 159, 246, 0.4);
